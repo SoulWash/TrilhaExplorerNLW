@@ -14,8 +14,11 @@
   
   body {
     background: #121214  url(./assets/bg.svg) no-repeat center/cover;
+    margin: auto;
   }
   
+
+
   body * {
     font-family: "Roboto", sans-serif;
   }
@@ -27,8 +30,15 @@
   
   header {
     margin-bottom: 63px;
+    text-align: center;
   }
   
+  #cards {
+    display: flex;
+    gap: 32px;
+  }
+
+
   .card {
     padding: 32px 23px;
     text-align: center;
@@ -80,4 +90,84 @@
     font-size: 36px;
     line-height: 125%;
     color: #E1E1E6;
+  }
+
+  @media (max-width: 700px) {
+    body {
+      padding: 30px;
+    }
+    div#app {
+      margin: 40px auto;
+    }
+    header {
+      margin-bottom: 40px;
+    }
+
+    #cards {
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .card {
+      padding: 25px 15px;
+    }
+
+    .card h2 {
+      gap: 13px;
+      padding: 6px 12px;
+      margin-bottom: 36px;
+    }
+    .card h2 span {
+      font-size: 12px;
+    }
+    .card ul {
+      gap: 16px;
+      width: 220px;
+    }
+    .card ul li + li {
+      padding-top: 18px;
+    }
+    .card ul li strong {
+      font-size: 30px;
+    }
+  }
+
+  @media (max-width: 450px) {
+    body {
+      padding: 50px;
+    }
+    div#app {
+      margin: 30px auto;
+    }
+    header {
+      margin-bottom: 30px;
+    }
+
+    #cards {
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .card {
+      padding: 20px 15px;
+    }
+
+    .card h2 {
+      gap: 10px;
+      padding: 6px 10px;
+      margin-bottom: 36px;
+    }
+    .card h2 span {
+      font-size: 10px;
+    }
+    .card ul {
+      gap: 12px;
+      width: 200px;
+    }
+    .card ul li + li {
+      padding-top: 14px;
+    }
+    .card ul li strong {
+      font-size: 24px;
+    }
   }
