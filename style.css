@@ -22,6 +22,7 @@ body.blue {
   --color-bg: #202024;
   --bg: url(./assets/bg-blue.svg);
 }
+*/
 
 
 /*
@@ -137,6 +138,12 @@ body.blue {
   animation: appear 0.5s forwards;
 }
 
+
+.card:hover {
+  opacity: 80%;
+  box-shadow: 2px 0px 12px 1px var(--color-card-p);
+  transition: 0.5s;
+}
 
 @keyframes appear {
   0% {
