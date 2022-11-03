@@ -7,14 +7,41 @@
     padding: 0;
     box-sizing: border-box;
   }
+
+:root {
+  --color-card-p: #f7dd43;
+  --color-boder-t: #746615;
+  --color-bg:#1d1c19;
+  --bg: url(./assets/bg-yellow.svg);
+}
+
+/*
+body.blue {
+  --color-card-p: #338AF3;
+  --color-boder-t: #338AF3;
+  --color-bg: #202024;
+  --bg: url(./assets/bg-blue.svg);
+}
+
+
+/*
+ body.green {
+  --color-card-p: #496E2D;
+  --color-boder-t: #496E2D;
+  --color-bg: #121214;
+    --bg: url(./assets/bg-green.svg);
+}
+*/
+
   
   ul {
     list-style: none;
   }
   
   body {
-    background: #121214  url(./assets/bg.svg) no-repeat center/cover;
+    background: #121214  var(--bg) no-repeat right center/cover;
     margin: auto;
+    background-attachment: fixed;
   }
   
 
@@ -25,7 +52,8 @@
   
   #app {
     width: fit-content;
-    margin: 52px auto;
+    margin: auto;
+    padding-top: 52px ;
   }
   
   header {
@@ -35,7 +63,6 @@
   
   #cards {
     display: flex;
-    flex-wrap: wrap;
     gap: 32px;
   }
 
@@ -43,8 +70,8 @@
   .card {
     padding: 32px 23px;
     text-align: center;
-    background: #1d1c19;
-    border-bottom: 2px solid #f7dd43;
+    background: var(--color-bg);
+    border-bottom: 2px solid var(--color-card-p);
     border-radius: 6px;
   }
   
@@ -54,7 +81,7 @@
     justify-content: center;
     align-items: center;
     padding: 8px 16px;
-    border: 1px solid #746615;
+    border: 1px solid var(--color-boder-t);
     border-radius: 6px;
     width: fit-content;
     margin-inline: auto;
@@ -93,23 +120,46 @@
     color: #E1E1E6;
   }
 
+.card h2:hover,  
+.card ul li strong:hover,
+.card ul li img:hover {
+  transform: scale(1.1);
+}
+
+.card h2,
+.card ul li strong,
+.card ul li img {
+  transition: transform 0.3s;
+}
+
+.card {
+  opacity: 0;
+  animation: appear 0.5s forwards;
+}
 
 
+@keyframes appear {
+  0% {
+    transform: rotateY(90deg);
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
 
 
   @media (max-width: 1060px) {
     body {
       padding: 30px;
     }
-    div#app {
-      margin: 40px auto;
-    }
     header {
       margin-bottom: 40px;
     }
 
     .card {
-      padding: 25px 15px;
+      padding: 25px 25px;
     }
 
     .card h2 {
@@ -134,81 +184,12 @@
 
 
   @media (max-width: 900px) {
-    body {
-      padding: 30px;
-    }
-    div#app {
-      margin: 40px auto;
-    }
-    header {
-      margin-bottom: 40px;
-    }
 
     #cards {
       flex-direction: column;
-      gap: 32px;
     }
 
-    .card {
-      padding: 25px 15px;
-    }
-
-    .card h2 {
-      gap: 13px;
-      padding: 6px 12px;
-      margin-bottom: 36px;
-    }
-    .card h2 span {
-      font-size: 12px;
-    }
-    .card ul {
-      gap: 16px;
-      width: 220px;
-    }
-    .card ul li + li {
-      padding-top: 18px;
-    }
-    .card ul li strong {
-      font-size: 30px;
-    }
-  }
-
-  @media (max-width: 450px) {
-    body {
-      padding: 50px;
-    }
-    div#app {
-      margin: 30px auto;
-    }
-    header {
-      margin-bottom: 30px;
-    }
-
-    #cards {
-      flex-direction: column;
-      gap: 32px;
-    }
-
-    .card {
-      padding: 20px 15px;
-    }
-
-    .card h2 {
-      gap: 10px;
-      padding: 6px 10px;
-      margin-bottom: 36px;
-    }
-    .card h2 span {
-      font-size: 10px;
-    }
-    .card ul {
-      gap: 12px;
-      width: 200px;
-    }
-    .card ul li + li {
-      padding-top: 14px;
-    }
-    .card ul li strong {
-      font-size: 24px;
+    #app {
+      padding-top: 32px;
     }
   }
